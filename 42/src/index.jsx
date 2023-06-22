@@ -1,6 +1,13 @@
-import "./style.css";
 import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+import "./style.css";
+
+console.log(App);
 
 const root = createRoot(document.querySelector("#root"));
 
-root.render(<h1 className="header-style">Hello React</h1>);
+root.render(
+  <div>
+    <App />
+  </div>
+);
