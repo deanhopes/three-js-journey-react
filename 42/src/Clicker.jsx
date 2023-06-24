@@ -30,7 +30,9 @@ function Clicker({ keyName, color = "black", incrementCount }) {
   return (
     <div>
       <p style={{ color }}>You clicked {count} times</p>
-      <button ref={buttonRef}onClick={buttonClick}>Click me</button>
+      <button ref={buttonRef} onClick={buttonClick}>
+        Click me
+      </button>
       <button onClick={resetClick}>Reset</button>
     </div>
   );
