@@ -11,9 +11,13 @@ export default function Experience() {
     const groupRef = useRef()
     const planeRef = useRef()
 
-    console.log(camera, gl)
-
     useFrame((state, delta) => {
+        // console.log(state.clock.getElapsedTime())
+
+        // state.camera.position.x = 8 * Math.sin(state.clock.getElapsedTime())
+        // state.camera.position.z = 8 * Math.cos(state.clock.getElapsedTime())
+        // state.camera.lookAt(0, 0, 0)
+
         cubeRef.current.rotation.z += delta
         // groupRef.current.rotation.y += delta
     })
