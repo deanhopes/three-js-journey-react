@@ -18,7 +18,7 @@ export default function Experience() {
         // state.camera.position.z = 8 * Math.cos(state.clock.getElapsedTime())
         // state.camera.lookAt(0, 0, 0)
 
-        cubeRef.current.rotation.z += delta
+        cubeRef.current.rotation.y += delta
         // groupRef.current.rotation.y += delta
     })
 
