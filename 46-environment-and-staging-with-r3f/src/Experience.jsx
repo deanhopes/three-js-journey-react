@@ -32,13 +32,20 @@ export default function Experience() {
                 samples={17}
                 rings={11}
             /> */}
-            <AccumulativeShadows position={[0, -0.99, 0]}>
+            <AccumulativeShadows
+                position={[0, -0.99, 0]}
+                color='#316d39'
+                opacity={0.8}
+                frames={1000}
+                temporal={false}
+            >
                 <RandomizedLight
-                    amount={10}
+                    amount={8}
                     radius={1}
-                    intensity={1.5}
-                    ambient={0.2}
-                    position={[2, 2, 3]}
+                    intensity={1}
+                    ambient={0.5}
+                    position={[1, 2, 3]}
+                    bias={0.001}
                 />
             </AccumulativeShadows>
 
