@@ -45,6 +45,11 @@ export default function Experience() {
                 <planeGeometry />
                 <meshStandardMaterial color='greenyellow' />
             </mesh>
+
+            <color
+                args={["black"]}
+                attach={"background"}
+            />
         </>
     )
 }
