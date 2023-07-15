@@ -1,6 +1,7 @@
 import {OrbitControls} from "@react-three/drei"
 import {button, useControls} from "leva"
 import Cube from "./Cube"
+import {Perf} from "r3f-perf"
 
 export default function Experience() {
     const {position, color, visible} = useControls("plane", {
@@ -26,6 +27,7 @@ export default function Experience() {
     })
     return (
         <>
+            <Perf />
             <OrbitControls makeDefault />
 
             <directionalLight
