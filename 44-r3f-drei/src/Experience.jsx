@@ -1,59 +1,33 @@
-import {
-    OrbitControls,
-    TransformControls,
-    Html,
-    CubeCamera,
-    MeshRefractionMaterial,
-} from "@react-three/drei"
-import {useRef} from "react"
-import {useControls} from "leva"
+import { useThree, extend } from '@react-three/fiber'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
-export default function Experience() {
-    const {ior, color} = useControls({
-        ior: {value: -1.5, min: -3, max: 3, step: 0.1},
-        color: "#ffffff",
-    })
+extend({ OrbitControls })
 
-    const mesh = useRef()
+export default function Experience()
+{
+    const { camera, gl } = useThree()
 
-    return (
-        <>
-            <color
-                attach='background'
-                args={["#151518"]}
-            />
-            <OrbitControls makeDefault />
+    return <>
 
-            <directionalLight
-                position={[1, 2, 3]}
-                intensity={1.5}
-            />
-            <ambientLight intensity={0.5} />
+        <orbitControls args={ [ camera, gl.domElement ] } />
 
-            <Html
-                position={[0, 0, -2]}
-                transform='none'
-                wrapperClass='hero-text_wrap'
-            >
-                <h1 className='hero-text'>This is a placeholder statement</h1>
-            </Html>
+        <directionalLight position={ [ 1, 2, 3 ] } intensity={ 1.5 } />
+        <ambientLight intensity={ 0.5 } />
 
-            <CubeCamera>
-                {(texture) => (
-                    <mesh
-                        ref={mesh}
-                        position={[0, 0, 0]}
-                    >
-                        <sphereGeometry args={[1, 32, 32]} />
-                        <MeshRefractionMaterial
-                            envMap={texture}
-                            ior={ior}
-                            color={color}
-                        />
-                        <meshStandardMaterial color='white' />
-                    </mesh>
-                )}
-            </CubeCamera>
-        </>
-    )
+        <mesh position-x={ - 2 }>
+            <sphereGeometry />
+            <meshStandardMaterial color="orange" />
+        </mesh>
+
+        <mesh position-x={ 2 } scale={ 1.5 }>
+            <boxGeometry />
+            <meshStandardMaterial color="mediumpurple" />
+        </mesh>
+``
+        <mesh position-y={ - 1 } rotation-x={ - Math.PI * 0.5 } scale={ 10 }>
+            <planeGeometry />
+            <meshStandardMaterial color="greenyellow" />
+        </mesh>
+
+    </>
 }
