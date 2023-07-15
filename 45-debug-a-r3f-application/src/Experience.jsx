@@ -1,7 +1,11 @@
 import {OrbitControls} from "@react-three/drei"
+import {useControls} from "leva"
 import Cube from "./Cube"
 
 export default function Experience() {
+    const controls = useControls({
+        position: -2,
+    })
     return (
         <>
             <OrbitControls makeDefault />
@@ -20,7 +24,7 @@ export default function Experience() {
             <Cube scale={2} />
 
             <mesh
-                position-y={-1}
+                position-y={controls.position}
                 rotation-x={-Math.PI * 0.5}
                 scale={10}
             >
