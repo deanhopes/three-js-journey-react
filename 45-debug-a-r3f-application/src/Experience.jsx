@@ -1,10 +1,28 @@
 import {OrbitControls} from "@react-three/drei"
-import {useControls} from "leva"
+import {button, useControls} from "leva"
 import Cube from "./Cube"
 
 export default function Experience() {
-    const controls = useControls({
-        position: -2,
+    const {position, color, visible} = useControls("plane", {
+        position: {
+            value: {x: 0.6, y: -1.3, z: 0},
+            step: 0.1,
+        },
+        color: "#9ec1ff",
+        visible: true,
+        clickMe: button(() => alert("Hello!")),
+        choice: {options: ["A", "B", "C"]},
+    })
+    const {scale} = useControls("cube", {
+        position: {
+            value: {x: 0.6, y: -1.3, z: 0},
+            step: 0.1,
+        },
+        scale: 4,
+        color: "#9ec1ff",
+        visible: true,
+        clickMe: button(() => alert("Hello!")),
+        choice: {options: ["A", "B", "C"]},
     })
     return (
         <>
@@ -21,15 +39,18 @@ export default function Experience() {
                 <meshStandardMaterial color='orange' />
             </mesh>
 
-            <Cube scale={2} />
+            <Cube
+                scale={scale}
+                visible={visible}
+            />
 
             <mesh
-                position-y={controls.position}
+                position={[position.x, position.y, position.z]}
                 rotation-x={-Math.PI * 0.5}
                 scale={10}
             >
                 <planeGeometry />
-                <meshStandardMaterial color='greenyellow' />
+                <meshStandardMaterial color={color} />
             </mesh>
         </>
     )
