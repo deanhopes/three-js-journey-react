@@ -25,9 +25,13 @@ export default function Experience() {
         clickMe: button(() => alert("Hello!")),
         choice: {options: ["A", "B", "C"]},
     })
+    const {perfVisible} = useControls("perf", {
+        perfVisible: true,
+    })
     return (
         <>
-            <Perf />
+            {perfVisible ? <Perf position='top-left' /> : null}
+
             <OrbitControls makeDefault />
 
             <directionalLight
