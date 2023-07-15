@@ -1,4 +1,5 @@
 import {OrbitControls} from "@react-three/drei"
+import Cube from "./Cube"
 
 export default function Experience() {
     return (
@@ -16,13 +17,7 @@ export default function Experience() {
                 <meshStandardMaterial color='orange' />
             </mesh>
 
-            <mesh
-                position-x={2}
-                scale={1.5}
-            >
-                <boxGeometry />
-                <meshStandardMaterial color='mediumpurple' />
-            </mesh>
+            <Cube scale={2} />
 
             <mesh
                 position-y={-1}
